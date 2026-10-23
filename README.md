@@ -1,20 +1,8 @@
-# Red de Vida
+![Auto Assign](https://github.com/Puente-PRO-MAX/demo-repository/actions/workflows/auto-assign.yml/badge.svg)
 
-Red de Vida es un prototipo de una web sobre bienestar y hábitos saludables. Reúne en un solo lugar las secciones de inicio, bienestar, comunidad y perfil.
+![Proof HTML](https://github.com/Puente-PRO-MAX/demo-repository/actions/workflows/proof-html.yml/badge.svg)
 
-## Cómo probarlo
+# Welcome to your organization's demo respository
+This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
 
-Abre `index.html` en un navegador. No necesita instalación ni servidor.
-
-## Qué incluye
-
-- Secciones navegables dentro de la misma página.
-- Perfil personalizable y seguimiento sencillo de hábitos.
-- Publicaciones, respuestas y reacciones de ejemplo para la comunidad.
-- Animaciones de entrada y diseño adaptable a pantallas pequeñas.
-
-Los cambios de prueba se guardan en la sesión actual del navegador y se restablecen al cerrar la pestaña. La comunidad es solo una demostración local: no tiene servidor ni envía publicaciones o denuncias a otras personas.
-
-## Estado del proyecto
-
-Este trabajo es una base inicial para probar ideas y reconstruir el proyecto más adelante. No es una versión final ni un servicio de salud; su contenido es informativo y no reemplaza la atención profesional.
+The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.

@@ -1,6 +1,9 @@
 {
-  "name": "red-de-vida",
+  "name": "demo-repo",
   "version": "0.2.0",
-  "description": "Prototipo de bienestar, pensado como base para reconstruir más adelante.",
+  "description": "A sample package.json",
+  "dependencies": {
+    "@primer/css": "17.0.1"
+  },
   "license": "MIT"
 }
