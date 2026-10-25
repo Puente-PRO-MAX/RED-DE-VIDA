@@ -1,0 +1,47 @@
+div {
+    background-color: #d8e1d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p {
+  text-align: center;
+  font-size: 35px;
+}
+center {
+  text-align: center;
+  background-color: #d8e1d9;
+}
+.register-button {
+  display: block;
+  margin: 0 auto;
+  font-size: 25px;
+ background-color: #03bcff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+
+}
+.login-button {
+  display: block;
+  margin: 0 auto;
+  font-size: 25px;
+ background-color: #e8eff2;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+
+}
+footer {
+  background-color: #6dc8b6;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 1px;
+  size: 5px;
+}
+
+
+
+
