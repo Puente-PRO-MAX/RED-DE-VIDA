@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Red de Vida · Perfil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="pantalla">
+
+    <header class="encabezado">
+      <div class="encabezado__fila">
+        <div class="avatar" id="profile-avatar" role="img" aria-label="Avatar de perfil">
+          <svg id="avatar-placeholder" viewBox="0 0 24 24" width="50" height="50" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M4.5 20a7.5 7.5 0 0 1 15 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span id="avatar-text"></span>
+        </div>
+
+        <h1 class="caja caja--nombre" id="profile-name">Tu perfil</h1>
+      </div>
+
+      <p class="etiqueta">Red de Vida · Perfil de usuario</p>
+
+      <p class="caja caja--descripcion" id="profile-description">Agrega una descripción personal.</p>
+
+      <label class="busqueda" for="search-mood">
+        <svg class="busqueda__icono" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="m16 16 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+        <input id="search-mood" type="search" placeholder="Buscar" autocomplete="off" />
+      </label>
+
+      <div class="pildora" id="profile-streak" role="status" aria-live="polite" hidden>
+        <span class="pildora__icono" aria-hidden="true">🔥</span>
+        <span>Racha</span>
+        <strong class="pildora__valor" id="profile-streak-value"></strong>
+      </div>
+    </header>
+
+    <section class="historial" aria-label="Historial de emociones">
+      <button class="tarjeta-dia" type="button" data-day="lunes">
+        <h2 class="tarjeta-dia__dia">Lunes</h2>
+        <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
+        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+      </button>
+
+      <button class="tarjeta-dia" type="button" data-day="martes">
+        <h2 class="tarjeta-dia__dia">Martes</h2>
+        <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
+        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+      </button>
+
+      <button class="tarjeta-dia" type="button" data-day="miercoles">
+        <h2 class="tarjeta-dia__dia">Miércoles</h2>
+        <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
+        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+      </button>
+
+    </section>
+
+    <div class="acciones">
+      <button class="boton" type="button" id="open-profile-editor">
+        Editar perfil
+        <svg class="boton__icono" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M3 3 L21 12 L3 21 L6 12 Z M6 12 H21" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <p class="busqueda__mensaje" id="search-empty" role="status" aria-live="polite" hidden>
+      No se encontraron coincidencias.
+    </p>
+
+  </main>
+
+  <dialog class="dialogo" id="profile-dialog" aria-labelledby="dialog-title">
+    <div class="dialogo__contenido">
+      <div class="dialogo__encabezado">
+        <h2 id="dialog-title">Editar perfil</h2>
+        <button class="dialogo__cerrar" type="button" id="close-dialog" aria-label="Cerrar">×</button>
+      </div>
+
+      <form id="profile-form" class="dialogo__seccion">
+        <label class="dialogo__campo" for="edit-avatar">
+          Avatar · iniciales o emoji
+          <input id="edit-avatar" name="avatar" type="text" maxlength="4" placeholder="Ej. AR o 😊" />
+        </label>
+        <label class="dialogo__campo" for="edit-name">
+          Nombre
+          <input id="edit-name" name="name" type="text" maxlength="60" placeholder="Tu nombre" />
+        </label>
+        <label class="dialogo__campo" for="edit-description">
+          Descripción personal
+          <textarea id="edit-description" name="description" rows="3" maxlength="180" placeholder="Escribe algo sobre ti"></textarea>
+        </label>
+        <p class="dialogo__mensaje" id="profile-feedback" role="status" aria-live="polite"></p>
+        <button class="boton" type="submit">Guardar perfil</button>
+      </form>
+
+      <section id="mood-form" class="dialogo__seccion" hidden aria-labelledby="mood-title">
+        <h3 id="mood-title">¿Cómo te sentiste el <span id="selected-day"></span>?</h3>
+        <div class="dialogo__estados" role="group" aria-label="Elige tu estado de ánimo">
+          <button type="button" class="estado" data-mood="feliz" aria-label="Feliz"><span aria-hidden="true">😄</span>Feliz</button>
+          <button type="button" class="estado" data-mood="bien" aria-label="Bien"><span aria-hidden="true">🙂</span>Bien</button>
+          <button type="button" class="estado" data-mood="neutral" aria-label="Neutral"><span aria-hidden="true">😐</span>Neutral</button>
+          <button type="button" class="estado" data-mood="triste" aria-label="Triste"><span aria-hidden="true">😢</span>Triste</button>
+          <button type="button" class="estado" data-mood="ansioso" aria-label="Ansioso/a"><span aria-hidden="true">😟</span>Ansioso/a</button>
+        </div>
+        <p class="dialogo__mensaje" id="mood-feedback" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </dialog>
+
+  <script>
+    const profileKey = "red-de-vida:perfil-hud:v1";
+    const moodsKey = "red-de-vida:estado-hud:v1";
+    const moods = {
+      feliz: { emoji: "😄", label: "Estado feliz" },
+      bien: { emoji: "🙂", label: "Estado bien" },
+      neutral: { emoji: "😐", label: "Estado neutral" },
+      triste: { emoji: "😢", label: "Estado triste" },
+      ansioso: { emoji: "😟", label: "Estado ansioso" },
+    };
+
+    const profileName = document.getElementById("profile-name");
+    const profileDescription = document.getElementById("profile-description");
+    const avatarText = document.getElementById("avatar-text");
+    const avatarPlaceholder = document.getElementById("avatar-placeholder");
+    const profileStreak = document.getElementById("profile-streak");
+    const profileStreakValue = document.getElementById("profile-streak-value");
+    const dialog = document.getElementById("profile-dialog");
+    const dialogTitle = document.getElementById("dialog-title");
+    const profileForm = document.getElementById("profile-form");
+    const moodForm = document.getElementById("mood-form");
+    const avatarInput = document.getElementById("edit-avatar");
+    const nameInput = document.getElementById("edit-name");
+    const descriptionInput = document.getElementById("edit-description");
+    const profileFeedback = document.getElementById("profile-feedback");
+    const moodFeedback = document.getElementById("mood-feedback");
+    const selectedDay = document.getElementById("selected-day");
+    const dayCards = document.querySelectorAll(".tarjeta-dia[data-day]");
+    const searchInput = document.getElementById("search-mood");
+    const searchEmpty = document.getElementById("search-empty");
+    const mondayNames = ["lunes", "martes", "miércoles"];
+    const today = new Date();
+    const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const weekDays = {};
+    let selectedDateKey = "";
+
+    monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
+
+    function dateKey(date) {
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${date.getFullYear()}-${month}-${day}`;
+    }
+
+    function readStoredObject(key) {
+      const stored = localStorage.getItem(key);
+      if (!stored) {
+        return {};
+      }
+
+      const parsed = JSON.parse(stored);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        throw new Error("Los datos guardados no tienen el formato esperado.");
+      }
+      return parsed;
+    }
+
+    function getInitials(name) {
+      const words = name.trim().split(/\s+/).filter(Boolean);
+      if (words.length > 1) {
+        return (words[0][0] + words[words.length - 1][0]).toLocaleUpperCase("es");
+      }
+      return words[0] ? words[0].slice(0, 2).toLocaleUpperCase("es") : "";
+    }
+
+    function renderAvatar(avatar, name) {
+      const text = typeof avatar === "string" && avatar.trim()
+        ? avatar.trim()
+        : getInitials(name);
+      avatarText.textContent = text;
+      avatarText.classList.toggle("avatar__texto", Boolean(text));
+      avatarPlaceholder.hidden = Boolean(text);
+    }
+
+    function loadProfile() {
+      const profile = readStoredObject(profileKey);
+      const name = typeof profile.name === "string" ? profile.name.trim() : "";
+      const description = typeof profile.description === "string"
+        ? profile.description.trim()
+        : "";
+
+      profileName.textContent = name || "Tu perfil";
+      profileDescription.textContent = description || "Agrega una descripción personal.";
+      renderAvatar(profile.avatar, name);
+    }
+
+    function getStreak(entries) {
+      const currentDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      if (!entries[dateKey(currentDay)]) {
+        currentDay.setDate(currentDay.getDate() - 1);
+        if (!entries[dateKey(currentDay)]) {
+          return 0;
+        }
+      }
+
+      let streak = 0;
+      while (entries[dateKey(currentDay)]) {
+        streak += 1;
+        currentDay.setDate(currentDay.getDate() - 1);
+      }
+      return streak;
+    }
+
+    function renderMoods(entries) {
+      dayCards.forEach((card) => {
+        const mood = moods[entries[weekDays[card.dataset.day]]];
+        const emoji = card.querySelector(".tarjeta-dia__emoji");
+        const state = card.querySelector(".tarjeta-dia__estado");
+        emoji.textContent = mood ? mood.emoji : "·";
+        emoji.setAttribute(
+          "aria-label",
+          mood ? mood.label.replace("Estado ", "Cara ") : "Sin registrar"
+        );
+        state.textContent = mood ? mood.label : "Sin registrar · Toca para elegir";
+      });
+
+      const streak = getStreak(entries);
+      profileStreak.hidden = streak === 0;
+      profileStreakValue.textContent =
+        `${streak} ${streak === 1 ? "día" : "días"}`;
+    }
+
+    function filterMoodHistory() {
+      const query = searchInput.value
+        .trim()
+        .toLocaleLowerCase("es")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+      let visibleCards = 0;
+
+      dayCards.forEach((card) => {
+        const text = card.textContent
+          .toLocaleLowerCase("es")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        const matches = text.includes(query);
+        card.hidden = !matches;
+        if (matches) {
+          visibleCards += 1;
+        }
+      });
+
+      searchEmpty.hidden = visibleCards > 0;
+    }
+
+    function openProfileEditor() {
+      dialogTitle.textContent = "Editar perfil";
+      profileForm.hidden = false;
+      moodForm.hidden = true;
+      profileFeedback.textContent = "";
+
+      try {
+        const profile = readStoredObject(profileKey);
+        avatarInput.value = typeof profile.avatar === "string" ? profile.avatar : "";
+        nameInput.value = typeof profile.name === "string" ? profile.name : "";
+        descriptionInput.value =
+          typeof profile.description === "string" ? profile.description : "";
+      } catch {
+        avatarInput.value = "";
+        nameInput.value = "";
+        descriptionInput.value = "";
+        profileFeedback.textContent =
+          "No se pudieron leer los datos guardados. Puedes completar el perfil de nuevo.";
+      }
+
+      dialog.showModal();
+    }
+
+    document.getElementById("open-profile-editor").addEventListener("click", openProfileEditor);
+    document.getElementById("close-dialog").addEventListener("click", () => dialog.close());
+    searchInput.addEventListener("input", filterMoodHistory);
+
+    profileForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const profile = {
+        avatar: avatarInput.value.trim(),
+        name: nameInput.value.trim(),
+        description: descriptionInput.value.trim(),
+      };
+
+      try {
+        if (!profile.avatar && !profile.name && !profile.description) {
+          localStorage.removeItem(profileKey);
+        } else {
+          localStorage.setItem(profileKey, JSON.stringify(profile));
+        }
+      } catch {
+        profileFeedback.textContent = "No se pudieron guardar los cambios. Inténtalo otra vez.";
+        return;
+      }
+
+      profileName.textContent = profile.name || "Tu perfil";
+      profileDescription.textContent =
+        profile.description || "Agrega una descripción personal.";
+      renderAvatar(profile.avatar, profile.name);
+      dialog.close();
+    });
+
+    dayCards.forEach((card, index) => {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + index);
+      weekDays[card.dataset.day] = dateKey(date);
+
+      card.addEventListener("click", () => {
+        selectedDateKey = weekDays[card.dataset.day];
+        selectedDay.textContent = mondayNames[index];
+        dialogTitle.textContent = "Registro emocional";
+        profileForm.hidden = true;
+        moodForm.hidden = false;
+        moodFeedback.textContent = "";
+        dialog.showModal();
+      });
+    });
+
+    document.querySelectorAll("[data-mood]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const moodId = button.dataset.mood;
+        if (!moods[moodId]) {
+          return;
+        }
+
+        try {
+          const entries = readStoredObject(moodsKey);
+          entries[selectedDateKey] = moodId;
+          localStorage.setItem(moodsKey, JSON.stringify(entries));
+          renderMoods(entries);
+          moodFeedback.textContent = `Guardado: ${moods[moodId].emoji} ${moods[moodId].label}.`;
+          dialog.close();
+        } catch {
+          moodFeedback.textContent = "No se pudo guardar el estado. Inténtalo otra vez.";
+        }
+      });
+    });
+
+    try {
+      loadProfile();
+    } catch {
+      profileName.textContent = "Tu perfil";
+      profileDescription.textContent = "Agrega una descripción personal.";
+      renderAvatar("", "");
+    }
+
+    try {
+      renderMoods(readStoredObject(moodsKey));
+    } catch {
+      renderMoods({});
+    }
+  </script>
+</body>
+</html>
