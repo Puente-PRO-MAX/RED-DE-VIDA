@@ -7,3 +7,94 @@
     <title>Música - Red de Vida</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
+<header>
+    <a href="Index.html"><img class="logo" src="img/logo.png" alt="Red de Vida - Inicio"></a>
+    <div class="titulo-app">RED DE VIDA</div>
+    <nav>
+        <a href="Index.html">Inicio</a>
+        <a href="musica.html" class="activo">Música</a>
+        <a href="arte.html">Arte</a>
+        <a href="meditacion.html">Meditación</a>
+        <a href="match.html">Match</a>
+    </nav>
+    <div class="iconos">
+        <a href="#ayuda"><img src="img/ayuda.png" alt="Ayuda"></a>
+        <a href="#ajustes"><img src="img/ajustes.png" alt="Ajustes"></a>
+    </div>
+</header>
+
+<main>
+    <div class="aviso">Estas son unas de nuestras recomendaciones.</div>
+
+    <input type="radio" name="cancion" id="stop" checked hidden>
+    <div class="lista-musica">
+        <div class="cancion">
+            <img class="portada" src="img/duvet.png" alt="Portada de Duvet - Boa">
+            <div class="cancion-info">
+                <div class="nombre">Duvet<br>Boa</div>
+                <div class="controles">
+                    <label for="stop">❚❚</label>
+                    <input type="radio" name="cancion" id="c1" class="play">
+                    <label for="c1" class="b-play" aria-label="Reproducir"></label>
+                </div>
+            </div>
+        </div>
+        <div class="cancion">
+            <img class="portada" src="img/fromthestart.png" alt="Portada de From The Start - Laufey">
+            <div class="cancion-info">
+                <div class="nombre">From The Start<br>Laufey</div>
+                <div class="controles">
+                    <label for="stop">❚❚</label>
+                    <input type="radio" name="cancion" id="c2" class="play">
+                    <label for="c2" class="b-play" aria-label="Reproducir"></label>
+                </div>
+            </div>
+        </div>
+        <div class="cancion">
+            <img class="portada" src="img/dramamine.png" alt="Portada de Dramamine - Flawed Mangoes">
+            <div class="cancion-info">
+                <div class="nombre">Dramamine<br>Flawed Mangoes</div>
+                <div class="controles">
+                    <label for="stop">❚❚</label>
+                    <input type="radio" name="cancion" id="c3" class="play">
+                    <label for="c3" class="b-play" aria-label="Reproducir"></label>
+                </div>
+            </div>
+        </div>
+        <div class="cancion">
+            <img class="portada" src="img/moon.png" alt="Portada de Moon - Siggerr">
+            <div class="cancion-info">
+                <div class="nombre">Moon<br>Siggerr</div>
+                <div class="controles">
+                    <label for="stop">❚❚</label>
+                    <input type="radio" name="cancion" id="c4" class="play">
+                    <label for="c4" class="b-play" aria-label="Reproducir"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="modal" id="ayuda">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ayuda</h2>
+        <p>Elegí una opción del inicio para escuchar música, ver formas de expresión, meditar o conectar con un
+            acompañante.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+<div class="modal" id="ajustes">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ajustes</h2>
+        <p>Aquí podrás configurar tu perfil y tus notificaciones.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+</body>
+
+</html>
