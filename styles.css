@@ -1,0 +1,460 @@
+:root {
+  --verde: #7dbe77;
+  --verde-oscuro: #4f8a4a;
+  --blanco: #ffffff;
+  --tinta: #090909;
+  --tinta-suave: #3f4a40;
+  --fondo-pagina: #1f1f1f;
+
+  --fuente-serif: "Inria Serif", Georgia, serif;
+  --fuente-sans: "Inter", system-ui, sans-serif;
+
+  --radio-caja: 16px;
+  --radio-pildora: 999px;
+  --aura-verde: 0 0 0 4px rgba(125, 190, 119, 0.32), 0 0 16px rgba(79, 138, 74, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--fondo-pagina);
+  font-family: var(--fuente-serif);
+  color: var(--tinta);
+}
+
+.pantalla {
+  width: 100%;
+  max-width: 430px;
+  min-height: 932px;
+  padding: 28px 18px 40px;
+  background: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.avatar {
+  flex: none;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--verde);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.avatar > svg,
+.avatar > span {
+  grid-area: 1 / 1;
+}
+
+.avatar svg {
+  display: block;
+}
+
+.avatar svg[hidden] {
+  display: none;
+}
+
+.avatar__texto {
+  font-family: var(--fuente-serif);
+  font-size: 48px;
+}
+
+.caja {
+  margin: 0;
+  background: var(--verde);
+  border-radius: var(--radio-caja);
+}
+
+.caja--nombre {
+  flex: 1;
+  padding: 16px 14px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.caja--descripcion {
+  width: 92%;
+  padding: 16px 14px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--tinta-suave);
+}
+
+.etiqueta {
+  margin: 0;
+  font-family: var(--fuente-sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.pildora {
+  width: fit-content;
+  min-width: 60%;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 6px 16px;
+  background: var(--verde);
+  border-radius: var(--radio-pildora);
+  color: var(--tinta);
+  font-family: var(--fuente-serif);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  background: var(--verde);
+  color: var(--tinta);
+  font-family: var(--fuente-serif);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+.boton:hover {
+  filter: brightness(0.95);
+}
+
+.boton:active {
+  transform: scale(0.97);
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--verde-oscuro);
+  outline-offset: 3px;
+}
+
+.boton__icono {
+  display: block;
+}
+
+.tarjeta-dia {
+  width: 80%;
+  padding: 10px 14px 12px;
+  border: 0;
+  background: var(--verde);
+  color: inherit;
+  border-radius: var(--radio-caja);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tarjeta-dia:hover,
+.tarjeta-dia:focus-visible {
+  filter: brightness(0.97);
+}
+
+.tarjeta-dia:focus-visible {
+  outline: 3px solid var(--verde-oscuro);
+  outline-offset: 3px;
+}
+
+.tarjeta-dia__dia {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.tarjeta-dia__emoji {
+  display: block;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.tarjeta-dia__estado {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--tinta-suave);
+}
+
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.encabezado__fila {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.encabezado .caja--descripcion {
+  margin-top: 6px;
+}
+
+.encabezado .pildora {
+  margin-top: 14px;
+}
+
+.historial {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.busqueda {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  min-width: 0;
+  min-height: 38px;
+  gap: 8px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radio-pildora);
+  background: var(--verde);
+  color: var(--tinta);
+  cursor: text;
+}
+
+.busqueda__icono {
+  display: block;
+  flex: none;
+}
+
+.busqueda:focus-within {
+  outline: 3px solid var(--verde-oscuro);
+  outline-offset: 3px;
+}
+
+.busqueda input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--tinta);
+  font: 700 17px var(--fuente-serif);
+}
+
+.busqueda input::placeholder {
+  color: var(--tinta);
+  opacity: 1;
+}
+
+.busqueda__mensaje {
+  margin: 0;
+  color: var(--tinta-suave);
+  font: 14px var(--fuente-sans);
+}
+
+.busqueda__mensaje[hidden] {
+  display: none;
+}
+
+.pildora {
+  display: flex;
+}
+
+.pildora[hidden] {
+  display: none;
+}
+
+.pildora__icono {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pildora__valor {
+  font-size: 19px;
+}
+
+.encabezado .busqueda {
+  margin-top: 14px;
+}
+
+.dialogo {
+  width: min(390px, calc(100% - 32px));
+  max-height: min(85vh, 700px);
+  overflow: auto;
+  padding: 0;
+  border: 2px solid var(--verde);
+  border-radius: var(--radio-caja);
+  background: var(--blanco);
+  color: var(--tinta);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.3);
+}
+
+.dialogo::backdrop {
+  background: rgba(15, 27, 16, 0.62);
+}
+
+.dialogo__contenido {
+  padding: 22px;
+}
+
+.dialogo__encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dialogo__encabezado h2,
+.dialogo__seccion h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.dialogo__cerrar {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--verde);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.dialogo__seccion[hidden] {
+  display: none;
+}
+
+.dialogo__campo {
+  display: grid;
+  gap: 7px;
+  margin: 14px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dialogo__campo input,
+.dialogo__campo textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #c5d7c2;
+  border-radius: 10px;
+  background: #f9fcf8;
+  color: var(--tinta);
+  font: 16px var(--fuente-sans);
+}
+
+.dialogo__campo textarea {
+  resize: vertical;
+}
+
+button,
+a,
+.busqueda,
+.dialogo__campo input,
+.dialogo__campo textarea {
+  transition: box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+button:hover,
+button:focus-visible,
+a:hover,
+a:focus-visible,
+.busqueda:hover,
+.busqueda:focus-within,
+.dialogo__campo input:hover,
+.dialogo__campo input:focus-visible,
+.dialogo__campo textarea:hover,
+.dialogo__campo textarea:focus-visible {
+  box-shadow: var(--aura-verde);
+}
+
+.dialogo__mensaje {
+  min-height: 1.3em;
+  margin: 10px 0;
+  color: var(--tinta-suave);
+  font-family: var(--fuente-sans);
+  font-size: 13px;
+}
+
+.dialogo__estados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.estado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 9px;
+  border: 1px solid var(--verde);
+  border-radius: 12px;
+  background: #f2f8f0;
+  color: var(--tinta);
+  cursor: pointer;
+  font: 16px var(--fuente-sans);
+}
+
+.estado:hover,
+.estado:focus-visible {
+  background: #dcefd8;
+}
+
+.estado span {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 20px;
+}
+
+.acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+@media (max-width: 360px) {
+  .avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 44px;
+  }
+
+  .tarjeta-dia,
+  .caja--descripcion {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button,
+  a,
+  .busqueda,
+  .dialogo__campo input,
+  .dialogo__campo textarea {
+    transition: none;
+  }
+}
