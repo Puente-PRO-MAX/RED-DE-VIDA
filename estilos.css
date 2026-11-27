@@ -110,44 +110,6 @@ h1.pagina {
 }
 
 /* ===== Inicio ===== */
-.buscador {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--verde);
-    border-radius: 30px;
-    padding: 8px 14px;
-    margin-bottom: 22px;
-}
-
-.buscador input {
-    flex: 1;
-    min-width: 0;
-    background: transparent;
-    border: none;
-    outline: none;
-    font: inherit;
-    font-size: 18px;
-    color: #111;
-}
-
-.buscador input::placeholder {
-    color: #111;
-}
-
-.buscador button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-}
-
-.buscador img {
-    width: 26px;
-    height: 26px;
-}
-
 .seccion {
     margin-bottom: 22px;
 }
@@ -263,35 +225,6 @@ h1.pagina {
     padding: 8px 6px;
     font-size: 21px;
     line-height: 1.15;
-}
-
-.controles {
-    display: flex;
-    justify-content: flex-end;
-    gap: 14px;
-    margin-top: 8px;
-}
-
-.controles label {
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.controles input {
-    display: none;
-}
-
-/* Play/pausa solo con CSS: el botón ▷ se vuelve ▶ al elegirlo */
-.b-play::before {
-    content: "▷";
-}
-
-.play:checked+.b-play {
-    color: #fff;
-}
-
-.play:checked+.b-play::before {
-    content: "▶";
 }
 
 /* ===== Objetivos ===== */
@@ -495,22 +428,6 @@ h1.pagina {
         margin: 0 0 30px;
     }
 
-    .buscador {
-        max-width: 700px;
-        margin: 0 auto 40px;
-        padding: 10px 22px;
-        gap: 12px;
-    }
-
-    .buscador input {
-        font-size: 20px;
-    }
-
-    .buscador img {
-        width: 28px;
-        height: 28px;
-    }
-
     .rejilla-inicio {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -564,14 +481,6 @@ h1.pagina {
         font-size: 22px;
         padding: 10px 6px;
         border-radius: 12px;
-    }
-
-    .controles {
-        gap: 16px;
-    }
-
-    .controles label {
-        font-size: 16px;
     }
 
     .obj-lista {
@@ -655,5 +564,245 @@ h1.pagina {
 
     .iconos {
         gap: 12px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background: #f3f6f1;
+    }
+
+    header {
+        justify-content: center;
+        gap: 24px;
+        padding: 14px max(36px, calc((100% - 1440px) / 2));
+    }
+
+    .logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .titulo-app {
+        font-size: 24px;
+        padding: 5px 12px;
+    }
+
+    nav {
+        flex: 0 1 auto;
+        order: 0;
+        gap: 6px;
+        margin-left: 12px;
+        overflow: visible;
+    }
+
+    nav a {
+        font-size: 17px;
+        padding: 10px 13px;
+    }
+
+    .iconos {
+        gap: 20px;
+    }
+
+    main {
+        width: min(100% - 72px, 1440px);
+        max-width: none;
+        padding: 56px 0 80px;
+    }
+
+    h1.pagina {
+        margin: 0 0 28px;
+        padding: 18px 24px;
+        border-radius: 20px;
+        font-size: 36px;
+        text-align: left;
+    }
+
+    .rejilla-inicio {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .inicio-intro {
+        max-width: 1000px;
+        margin: 0 0 32px;
+        padding: 0;
+        color: #47574c;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .inicio-intro p {
+        padding: 0;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .rejilla-inicio .seccion {
+        min-height: 210px;
+        margin: 0;
+        padding: 28px;
+        border: 1px solid #dfe8dc;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(28, 54, 35, 0.06);
+    }
+
+    .rejilla-inicio .boton-verde {
+        width: 100%;
+        min-height: 58px;
+        margin: 0 0 18px;
+        padding: 16px 18px;
+        border-radius: 14px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .rejilla-inicio .seccion p {
+        padding: 0;
+        color: #47574c;
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    .aviso {
+        margin: 0 0 32px;
+        padding: 24px 30px;
+        border-radius: 18px;
+        background: #173a2d;
+        font-size: 28px;
+    }
+
+    .lista-musica {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .cancion {
+        min-height: 190px;
+        margin: 0;
+        padding: 24px;
+        border-radius: 22px;
+        background: #e2eee0;
+        box-shadow: 0 10px 28px rgba(28, 54, 35, 0.06);
+    }
+
+    .portada {
+        width: 142px;
+        height: 142px;
+        border-radius: 16px;
+    }
+
+    .portada::after {
+        font-size: 18px;
+    }
+
+    .cancion-info {
+        display: grid;
+        gap: 12px;
+    }
+
+    .nombre {
+        background: transparent;
+        text-align: left;
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    .cancion-nota {
+        color: #47574c;
+        font: 16px/1.5 var(--fuente);
+    }
+
+    .rejilla-arte {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .arte-intro {
+        max-width: 1000px;
+        margin: 0 0 28px;
+        padding: 24px 28px;
+        border-radius: 18px;
+        font-size: 25px;
+        line-height: 1.5;
+    }
+
+    .arte-sub {
+        margin: 0 0 18px;
+        font-size: 22px;
+    }
+
+    .rejilla-arte > div {
+        min-height: 190px;
+        padding: 24px;
+        border: 1px solid #dfe8dc;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(28, 54, 35, 0.06);
+    }
+
+    .etiqueta {
+        margin: 0 0 14px;
+        padding: 0;
+        background: none;
+        color: #315b43;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .desc {
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        padding: 0;
+        background: transparent;
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    .obj-lista {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .obj {
+        min-height: 180px;
+        padding: 28px;
+        border-radius: 18px;
+        font-size: 21px;
+        line-height: 1.5;
+    }
+
+    .obj.principal {
+        padding: 24px;
+        border-radius: 18px;
+        background: #e2eee0;
+        font-size: 26px;
+    }
+
+    .nota {
+        margin-top: 32px;
+        text-align: center;
+    }
+
+    .match-caja {
+        max-width: 1000px;
+        margin: 0 auto 28px;
+        padding: 56px;
+        border: 1px solid #dfe8dc;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 10px 28px rgba(28, 54, 35, 0.06);
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .volver {
+        display: table;
+        margin: 0 auto;
+        padding: 14px 28px;
+        font-size: 20px;
     }
 }
