@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meditación - Red de Vida</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <a href="index.html"><img class="logo" src="imagenes/logo.png" alt="Red de Vida - Inicio"></a>
+    <div class="titulo-app">RED DE VIDA</div>
+    <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="arte.html">Arte</a>
+        <a href="meditacion.html" class="activo" aria-current="page">Meditación</a>
+        <a href="match.html">Match</a>
+        <a href="checkin.html">Check-in</a>
+        <a href="perfil-usuario.html">Perfil</a>
+    </nav>
+    <div class="iconos">
+        <a href="#ayuda"><img src="imagenes/ayuda.png" alt="Ayuda"></a>
+        <a href="#ajustes"><img src="imagenes/ajustes.png" alt="Ajustes"></a>
+    </div>
+</header>
+<main>
+    <h1 class="pagina">Objetivos</h1>
+    <div class="obj-lista">
+        <div class="obj principal">Encontrar tranquilidad y aprender a gestionar tus emociones.</div>
+        <input type="checkbox" id="o1" class="chk">
+        <label for="o1" class="obj">Meditar: dedica 5 minutos al dia a respirar tranquilamente y concentrarte en el
+            presente.</label>
+        <input type="checkbox" id="o2" class="chk">
+        <label for="o2" class="obj">Desahogarte: escribi o habla sobre lo que sentis, sin juzgarte ni guardarte las
+            cosas.</label>
+        <input type="checkbox" id="o3" class="chk">
+        <label for="o3" class="obj">Reflexionar: antes de dormir, pensa en como estuvo tu dia y que emociones
+            experimentaste.</label>
+    </div>
+    <p class="nota">Lo importante es hacerlo poco a poco, sin exigirte demasiado, tu puedes.</p>
+</main>
+
+<div class="modal" id="ayuda">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ayuda</h2>
+        <p>Elegí una opción del inicio para escuchar música, ver formas de expresión, meditar o conectar con un
+            acompañante.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+<div class="modal" id="ajustes">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ajustes</h2>
+        <p>Aquí podrás configurar tu perfil y tus notificaciones.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+</body>
+
+</html>

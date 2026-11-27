@@ -1,0 +1,60 @@
+.checkin-main {
+  font-family: Georgia, serif;
+}
+
+.checkin-main {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.checkin-header {
+  background-color: #5a9a32;
+  text-align: center;
+  padding: 10px;
+}
+
+.checkin-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.checkin-option {
+  width: 45%;
+  text-align: center;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.checkin-option input {
+  accent-color: #4a9080;
+}
+
+.emoji {
+  display: block;
+  font-size: 55px;
+}
+
+#checkin-form button {
+  display: block;
+  width: 60%;
+  margin: 30px auto;
+  padding: 15px;
+  font-size: 20px;
+  background-color: #8fb56a;
+  border: none;
+}
+
+.checkin-feedback {
+  min-height: 1.5em;
+  margin-top: 18px;
+  text-align: center;
+  color: #3f4a40;
+}
+
+@media (max-width: 400px) {
+  .emoji {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check-in diario · Red de Vida</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="checkin.css">
+</head>
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="imagenes/logo.png" alt="Red de Vida - Inicio"></a>
+    <div class="titulo-app">RED DE VIDA</div>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="musica.html">Música</a>
+      <a href="arte.html">Arte</a>
+      <a href="meditacion.html">Meditación</a>
+      <a href="match.html">Match</a>
+      <a href="checkin.html" class="activo" aria-current="page">Check-in</a>
+      <a href="perfil-usuario.html">Perfil</a>
+    </nav>
+    <div class="iconos">
+      <a href="index.html#ayuda"><img src="imagenes/ayuda.png" alt="Ayuda"></a>
+      <a href="index.html#ajustes"><img src="imagenes/ajustes.png" alt="Ajustes"></a>
+    </div>
+  </header>
+
+  <main class="checkin-main">
+    <div class="checkin-header">
+      <h1>¿Cómo te sentís hoy?</h1>
+    </div>
+
+    <form id="checkin-form">
+      <section class="checkin-options" aria-label="Selecciona tu estado de ánimo">
+        <label class="checkin-option">
+          <input type="radio" name="animo" value="triste">
+          <span class="emoji">😭</span>
+          Muy triste
+        </label>
+
+        <label class="checkin-option">
+          <input type="radio" name="animo" value="triste">
+          <span class="emoji">😔</span>
+          Algo triste
+        </label>
+
+        <label class="checkin-option">
+          <input type="radio" name="animo" value="neutral">
+          <span class="emoji">😐</span>
+          Neutral
+        </label>
+
+        <label class="checkin-option">
+          <input type="radio" name="animo" value="bien">
+          <span class="emoji">🙂</span>
+          Bien
+        </label>
+
+        <label class="checkin-option">
+          <input type="radio" name="animo" value="feliz">
+          <span class="emoji">😄</span>
+          Muy bien
+        </label>
+      </section>
+
+      <p class="checkin-feedback" id="checkin-feedback" role="status" aria-live="polite"></p>
+      <button type="submit">Guardar y ver mi perfil</button>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("checkin-form");
+    const feedback = document.getElementById("checkin-feedback");
+    const moodsKey = "red-de-vida:estado-hud:v1";
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const selectedMood = form.querySelector('input[name="animo"]:checked');
+      if (!selectedMood) {
+        feedback.textContent = "Selecciona cómo te sientes para continuar.";
+        return;
+      }
+
+      const now = new Date();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const day = String(now.getDate()).padStart(2, "0");
+      const todayKey = `${now.getFullYear()}-${month}-${day}`;
+
+      try {
+        const stored = localStorage.getItem(moodsKey);
+        const entries = stored ? JSON.parse(stored) : {};
+        if (!entries || typeof entries !== "object" || Array.isArray(entries)) {
+          throw new Error("Los registros guardados no tienen el formato esperado.");
+        }
+        entries[todayKey] = selectedMood.value;
+        localStorage.setItem(moodsKey, JSON.stringify(entries));
+      } catch {
+        feedback.textContent = "No se pudo guardar el registro. Revisa el almacenamiento del navegador e inténtalo otra vez.";
+        return;
+      }
+
+      window.location.href = "perfil-usuario.html";
+    });
+  </script>
+</body>
+</html>

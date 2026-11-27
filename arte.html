@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arte - Red de Vida</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <a href="index.html"><img class="logo" src="imagenes/logo.png" alt="Red de Vida - Inicio"></a>
+    <div class="titulo-app">RED DE VIDA</div>
+    <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="musica.html">Música</a>
+        <a href="arte.html" class="activo" aria-current="page">Arte</a>
+        <a href="meditacion.html">Meditación</a>
+        <a href="match.html">Match</a>
+        <a href="checkin.html">Check-in</a>
+        <a href="perfil-usuario.html">Perfil</a>
+    </nav>
+    <div class="iconos">
+        <a href="#ayuda"><img src="imagenes/ayuda.png" alt="Ayuda"></a>
+        <a href="#ajustes"><img src="imagenes/ajustes.png" alt="Ajustes"></a>
+    </div>
+</header>
+<main>
+    <div class="arte-intro">El arte es una forma de expresar emociones y experiencias que a veces cuesta transmitir con
+        palabras.</div>
+    <p class="arte-sub">Formas de expresion artistica:</p>
+    <div class="rejilla-arte">
+        <div><span class="etiqueta">Pintura</span>
+            <div class="desc">Expresar sentimientos mediante colores y formas.</div>
+        </div>
+        <div><span class="etiqueta">Escritura</span>
+            <div class="desc">Transmitir pensamientos mediante poemas, diarios o relatos.</div>
+        </div>
+        <div><span class="etiqueta">Musica</span>
+            <div class="desc">Expresar emociones a traves de sonidos o melodias.</div>
+        </div>
+        <div><span class="etiqueta">Fotografia</span>
+            <div class="desc">Capturar momentos y transmitir sensaciones.</div>
+        </div>
+        <div><span class="etiqueta">Danza</span>
+            <div class="desc">Expresar emociones mediante movimientos.</div>
+        </div>
+        <div><span class="etiqueta">Escultura</span>
+            <div class="desc">Representar ideas y sentimientos con formas.</div>
+        </div>
+    </div>
+</main>
+
+<div class="modal" id="ayuda">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ayuda</h2>
+        <p>Elegí una opción del inicio para escuchar música, ver formas de expresión, meditar o conectar con un
+            acompañante.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+<div class="modal" id="ajustes">
+    <a class="fondo" href="#" aria-label="Cerrar"></a>
+    <div class="modal-caja">
+        <h2>Ajustes</h2>
+        <p>Aquí podrás configurar tu perfil y tus notificaciones.</p>
+        <a href="#">Cerrar</a>
+    </div>
+</div>
+
+</body>
+
+</html>
