@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Servidor Red de Vida",
+            "type": "process",
+            "command": "powershell",
+            "args": [
+                "-NoLogo",
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\.vscode\\serve.ps1"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "red-vida-server",
+                "pattern": [
+                    {
+                        "regexp": "^(.*)$",
+                        "message": 1
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Servidor Red de Vida listo en",
+                    "endsPattern": "^Servidor detenido$"
+                }
+            }
+        }
+    ]
+}

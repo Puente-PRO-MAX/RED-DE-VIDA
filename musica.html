@@ -26,46 +26,96 @@
     </div>
 </header>
 <main>
-    <div class="aviso">Estas son unas de nuestras recomendaciones.</div>
+    <section class="musica-hero" aria-labelledby="musica-titulo">
+        <div class="musica-hero__ornamento" aria-hidden="true"></div>
+        <div>
+            <p class="musica-hero__eyebrow">Bajá un cambio</p>
+            <h1 id="musica-titulo">Ponete algo y aflojá un poco</h1>
+            <p>Escuchá una muestra de 30 segundos; si te copa, seguí en Deezer.</p>
+            <span class="musica-hero__nota">Las muestras se cargan desde Deezer y requieren internet.</span>
+        </div>
+    </section>
 
     <div class="lista-musica">
-        <div class="cancion">
+        <article class="cancion">
             <div class="portada portada--duvet" aria-hidden="true"></div>
             <div class="cancion-info">
-                <div class="nombre">Duvet<br>Boa</div>
-                <p class="cancion-nota">Recomendación para acompañar tu momento.</p>
+                <div class="nombre">Duvet · bôa</div>
+                <div class="controles">
+                    <audio controls preload="none"
+                        src="/preview?id=1557745322"
+                        aria-label="Reproducir vista previa de Duvet de bôa"></audio>
+                    <span class="audio-preview">Vista previa oficial · 30 segundos</span>
+                    <p class="audio-mensaje" role="status" aria-live="polite" hidden></p>
+                    <a class="enlace-musica" href="https://www.deezer.com/es/track/1557745322"
+                        target="_blank" rel="noopener noreferrer">Escuchar en Deezer</a>
+                </div>
             </div>
-        </div>
-        <div class="cancion">
+        </article>
+        <article class="cancion">
             <div class="portada portada--laufey" aria-hidden="true"></div>
             <div class="cancion-info">
-                <div class="nombre">From The Start<br>Laufey</div>
-                <p class="cancion-nota">Recomendación para acompañar tu momento.</p>
+                <div class="nombre">From The Start · Laufey</div>
+                <div class="controles">
+                    <audio controls preload="none"
+                        src="/preview?id=2238153377"
+                        aria-label="Reproducir vista previa de From The Start de Laufey"></audio>
+                    <span class="audio-preview">Vista previa oficial · 30 segundos</span>
+                    <p class="audio-mensaje" role="status" aria-live="polite" hidden></p>
+                    <a class="enlace-musica" href="https://www.deezer.com/es/track/2238153377"
+                        target="_blank" rel="noopener noreferrer">Escuchar en Deezer</a>
+                </div>
             </div>
-        </div>
-        <div class="cancion">
+        </article>
+        <article class="cancion">
             <div class="portada portada--dramamine" aria-hidden="true"></div>
             <div class="cancion-info">
-                <div class="nombre">Dramamine<br>Flawed Mangoes</div>
-                <p class="cancion-nota">Recomendación para acompañar tu momento.</p>
+                <div class="nombre">Dramamine · Flawed Mangoes</div>
+                <div class="controles">
+                    <audio controls preload="none"
+                        src="/preview?id=2813262722"
+                        aria-label="Reproducir vista previa de Dramamine de Flawed Mangoes"></audio>
+                    <span class="audio-preview">Vista previa oficial · 30 segundos</span>
+                    <p class="audio-mensaje" role="status" aria-live="polite" hidden></p>
+                    <a class="enlace-musica" href="https://www.deezer.com/es/track/2813262722"
+                        target="_blank" rel="noopener noreferrer">Escuchar en Deezer</a>
+                </div>
             </div>
-        </div>
-        <div class="cancion">
+        </article>
+        <article class="cancion">
             <div class="portada portada--moon" aria-hidden="true"></div>
             <div class="cancion-info">
-                <div class="nombre">Moon<br>Siggerr</div>
-                <p class="cancion-nota">Recomendación para acompañar tu momento.</p>
+                <div class="nombre">Moon · Siggerr</div>
+                <div class="controles">
+                    <audio controls preload="none"
+                        src="/preview?id=3886148671"
+                        aria-label="Reproducir vista previa de Moon de Siggerr"></audio>
+                    <span class="audio-preview">Vista previa oficial · 30 segundos</span>
+                    <p class="audio-mensaje" role="status" aria-live="polite" hidden></p>
+                    <a class="enlace-musica" href="https://www.deezer.com/es/track/3886148671"
+                        target="_blank" rel="noopener noreferrer">Escuchar en Deezer</a>
+                </div>
             </div>
-        </div>
+        </article>
     </div>
+    <script>
+        document.querySelectorAll(".controles audio").forEach((reproductor) => {
+            reproductor.addEventListener("error", () => {
+                const mensaje = reproductor.parentElement.querySelector(".audio-mensaje");
+                mensaje.textContent = window.location.protocol === "file:"
+                    ? "Abre el proyecto con F5 para cargar la muestra. También puedes escuchar la canción completa en Deezer."
+                    : "No se pudo cargar la muestra. Comprueba tu conexión y que el servidor de F5 siga activo.";
+                mensaje.hidden = false;
+            });
+        });
+    </script>
 </main>
 
 <div class="modal" id="ayuda">
     <a class="fondo" href="#" aria-label="Cerrar"></a>
     <div class="modal-caja">
         <h2>Ayuda</h2>
-        <p>Elegí una opción del inicio para escuchar música, ver formas de expresión, meditar o conectar con un
-            acompañante.</p>
+        <p>Elegí lo que te sirva: crear algo, escuchar música o tomarte un respiro. No hay que hacerlo perfecto.</p>
         <a href="#">Cerrar</a>
     </div>
 </div>
@@ -74,7 +124,7 @@
     <a class="fondo" href="#" aria-label="Cerrar"></a>
     <div class="modal-caja">
         <h2>Ajustes</h2>
-        <p>Aquí podrás configurar tu perfil y tus notificaciones.</p>
+        <p>Podés editar tu perfil cuando te pinte.</p>
         <a href="#">Cerrar</a>
     </div>
 </div>

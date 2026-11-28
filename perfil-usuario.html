@@ -45,14 +45,14 @@
 
       <p class="etiqueta">Red de Vida · Perfil de usuario</p>
 
-      <p class="caja caja--descripcion" id="profile-description">Agrega una descripción personal.</p>
+      <p class="caja caja--descripcion" id="profile-description">Contá algo de vos, si te pinta.</p>
 
       <label class="busqueda" for="search-mood">
         <svg class="busqueda__icono" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8" />
           <path d="m16 16 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
-        <input id="search-mood" type="search" placeholder="Buscar" autocomplete="off" />
+        <input id="search-mood" type="search" placeholder="Buscar en la semana" autocomplete="off" />
       </label>
 
       <div class="pildora" id="profile-streak" role="status" aria-live="polite" hidden>
@@ -66,50 +66,50 @@
       <button class="tarjeta-dia" type="button" data-day="lunes">
         <h2 class="tarjeta-dia__dia">Lunes</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="martes">
         <h2 class="tarjeta-dia__dia">Martes</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="miercoles">
         <h2 class="tarjeta-dia__dia">Miércoles</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="jueves">
         <h2 class="tarjeta-dia__dia">Jueves</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="viernes">
         <h2 class="tarjeta-dia__dia">Viernes</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="sabado">
         <h2 class="tarjeta-dia__dia">Sábado</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
       <button class="tarjeta-dia" type="button" data-day="domingo">
         <h2 class="tarjeta-dia__dia">Domingo</h2>
         <span class="tarjeta-dia__emoji" role="img" aria-label="Sin registrar">·</span>
-        <p class="tarjeta-dia__estado">Sin registrar · Toca para elegir</p>
+        <p class="tarjeta-dia__estado">Sin registro · Tocá para elegir</p>
       </button>
 
     </section>
 
     <div class="acciones">
       <button class="boton" type="button" id="open-profile-editor">
-        Editar perfil
+        Editar mi perfil
         <svg class="boton__icono" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path d="M3 3 L21 12 L3 21 L6 12 Z M6 12 H21" fill="none" stroke="currentColor"
                 stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
@@ -117,7 +117,7 @@
       </button>
     </div>
     <p class="busqueda__mensaje" id="search-empty" role="status" aria-live="polite" hidden>
-      No se encontraron coincidencias.
+      No encontramos nada por acá.
     </p>
 
   </main>
@@ -140,14 +140,14 @@
         </label>
         <label class="dialogo__campo" for="edit-description">
           Descripción personal
-          <textarea id="edit-description" name="description" rows="3" maxlength="180" placeholder="Escribe algo sobre ti"></textarea>
+          <textarea id="edit-description" name="description" rows="3" maxlength="180" placeholder="Escribí algo sobre vos, si te pinta"></textarea>
         </label>
         <p class="dialogo__mensaje" id="profile-feedback" role="status" aria-live="polite"></p>
         <button class="boton" type="submit">Guardar perfil</button>
       </form>
 
       <section id="mood-form" class="dialogo__seccion" hidden aria-labelledby="mood-title">
-        <h3 id="mood-title">¿Cómo te sentiste el <span id="selected-day"></span>?</h3>
+        <h3 id="mood-title">¿Cómo venías el <span id="selected-day"></span>?</h3>
         <div class="dialogo__estados" role="group" aria-label="Elige tu estado de ánimo">
           <button type="button" class="estado" data-mood="feliz" aria-label="Feliz"><span aria-hidden="true">😄</span>Feliz</button>
           <button type="button" class="estado" data-mood="bien" aria-label="Bien"><span aria-hidden="true">🙂</span>Bien</button>
@@ -242,7 +242,7 @@
         : "";
 
       profileName.textContent = name || "Tu perfil";
-      profileDescription.textContent = description || "Agrega una descripción personal.";
+      profileDescription.textContent = description || "Contá algo de vos, si te pinta.";
       renderAvatar(profile.avatar, name);
     }
 
@@ -273,7 +273,7 @@
           "aria-label",
           mood ? mood.label.replace("Estado ", "Cara ") : "Sin registrar"
         );
-        state.textContent = mood ? mood.label : "Sin registrar · Toca para elegir";
+        state.textContent = mood ? mood.label : "Sin registro · Tocá para elegir";
       });
 
       const streak = getStreak(entries);
@@ -322,7 +322,7 @@
         nameInput.value = "";
         descriptionInput.value = "";
         profileFeedback.textContent =
-          "No se pudieron leer los datos guardados. Puedes completar el perfil de nuevo.";
+          "No pudimos leer lo que estaba guardado. Podés completar el perfil de nuevo.";
       }
 
       dialog.showModal();
@@ -347,13 +347,13 @@
           localStorage.setItem(profileKey, JSON.stringify(profile));
         }
       } catch {
-        profileFeedback.textContent = "No se pudieron guardar los cambios. Inténtalo otra vez.";
+        profileFeedback.textContent = "No se pudieron guardar los cambios. Probá de nuevo.";
         return;
       }
 
       profileName.textContent = profile.name || "Tu perfil";
       profileDescription.textContent =
-        profile.description || "Agrega una descripción personal.";
+        profile.description || "Contá algo de vos, si te pinta.";
       renderAvatar(profile.avatar, profile.name);
       dialog.close();
     });
@@ -366,7 +366,7 @@
       card.addEventListener("click", () => {
         selectedDateKey = weekDays[card.dataset.day];
         selectedDay.textContent = mondayNames[index];
-        dialogTitle.textContent = "Registro emocional";
+        dialogTitle.textContent = "Tu registro";
         profileForm.hidden = true;
         moodForm.hidden = false;
         moodFeedback.textContent = "";
@@ -386,10 +386,10 @@
           entries[selectedDateKey] = moodId;
           localStorage.setItem(moodsKey, JSON.stringify(entries));
           renderMoods(entries);
-          moodFeedback.textContent = `Guardado: ${moods[moodId].emoji} ${moods[moodId].label}.`;
+          moodFeedback.textContent = `Listo, quedó: ${moods[moodId].emoji} ${moods[moodId].label}.`;
           dialog.close();
         } catch {
-          moodFeedback.textContent = "No se pudo guardar el estado. Inténtalo otra vez.";
+          moodFeedback.textContent = "No se pudo guardar el estado. Probá de nuevo.";
         }
       });
     });
@@ -398,7 +398,7 @@
       loadProfile();
     } catch {
       profileName.textContent = "Tu perfil";
-      profileDescription.textContent = "Agrega una descripción personal.";
+      profileDescription.textContent = "Contá algo de vos, si te pinta.";
       renderAvatar("", "");
     }
 

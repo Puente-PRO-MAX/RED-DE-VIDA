@@ -32,40 +32,40 @@
     </div>
 
     <form id="checkin-form">
-      <section class="checkin-options" aria-label="Selecciona tu estado de ánimo">
+      <section class="checkin-options" aria-label="Elegí cómo venís hoy">
         <label class="checkin-option">
           <input type="radio" name="animo" value="triste">
           <span class="emoji">😭</span>
-          Muy triste
+          Hecho/a pelota
         </label>
 
         <label class="checkin-option">
           <input type="radio" name="animo" value="triste">
           <span class="emoji">😔</span>
-          Algo triste
+          Medio bajón
         </label>
 
         <label class="checkin-option">
           <input type="radio" name="animo" value="neutral">
           <span class="emoji">😐</span>
-          Neutral
+          Ni fu ni fa
         </label>
 
         <label class="checkin-option">
           <input type="radio" name="animo" value="bien">
           <span class="emoji">🙂</span>
-          Bien
+          Todo bien
         </label>
 
         <label class="checkin-option">
           <input type="radio" name="animo" value="feliz">
           <span class="emoji">😄</span>
-          Muy bien
+          De diez
         </label>
       </section>
 
       <p class="checkin-feedback" id="checkin-feedback" role="status" aria-live="polite"></p>
-      <button type="submit">Guardar y ver mi perfil</button>
+      <button type="submit">Guardar y chusmear mi perfil</button>
     </form>
   </main>
 
@@ -78,7 +78,7 @@
       event.preventDefault();
       const selectedMood = form.querySelector('input[name="animo"]:checked');
       if (!selectedMood) {
-        feedback.textContent = "Selecciona cómo te sientes para continuar.";
+        feedback.textContent = "Elegí cómo venís y seguimos.";
         return;
       }
 
@@ -96,7 +96,7 @@
         entries[todayKey] = selectedMood.value;
         localStorage.setItem(moodsKey, JSON.stringify(entries));
       } catch {
-        feedback.textContent = "No se pudo guardar el registro. Revisa el almacenamiento del navegador e inténtalo otra vez.";
+        feedback.textContent = "Uy, no se pudo guardar. Revisá el almacenamiento del navegador y probá de nuevo.";
         return;
       }
 

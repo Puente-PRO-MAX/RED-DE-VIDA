@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Red de Vida (Chrome)",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "http://localhost:5500/index.html",
+            "webRoot": "${workspaceFolder}",
+            "disableCache": true,
+            "preLaunchTask": "Servidor Red de Vida",
+            "runtimeArgs": [
+                "--disable-cache",
+                "--incognito",
+                "--new-window"
+            ]
+        }
+    ]
+}
